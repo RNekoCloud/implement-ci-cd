@@ -1,0 +1,24 @@
+name: github-action-react
+
+on:
+  push:
+    branch:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node JS
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+
+      - name: Install Dependencies
+        run: yarn add
+
+      - name: Test
+        run: yarn test
